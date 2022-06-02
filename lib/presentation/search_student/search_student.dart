@@ -78,43 +78,39 @@ class MySearch extends SearchDelegate {
                 "No Data Found!",
                 style: TextStyle(color: Colors.green),
               ))
-            : Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-                child: ListView.separated(
-                    physics: const BouncingScrollPhysics(),
-                    shrinkWrap: true,
-                    itemBuilder: (context, index) {
-                      return Container(
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15)),
-                          child: ListTile(
-                            onTap: () => Navigator.of(context).push(
-                                MaterialPageRoute(
-                                    builder: ((context) =>
-                                        StudentDetail(index: index)))),
-                            leading: CircleAvatar(
-                              backgroundImage: FileImage(
-                                  File(state.studentDetails[index].image)),
-                              radius: 40,
-                            ),
-                            title: Text(
-                                state.studentDetails[index].name.toUpperCase(),
-                                style: textWhite),
-                            subtitle: Text(
-                              state.studentDetails[index].branch,
-                              style: textWhite,
-                            ),
-                          ));
-                      // return ListTile(
-                    },
-                    separatorBuilder: (context, index) {
-                      return  const SizedBox(
-                        height: 10,
-                      );
-                    },
-                    itemCount: state.studentDetails.length),
-              ),
+            : ListView.separated(
+                physics: const BouncingScrollPhysics(),
+                shrinkWrap: true,
+                itemBuilder: (context, index) {
+                  return Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15)),
+                      child: ListTile(
+                        onTap: () => Navigator.of(context).push(
+                            MaterialPageRoute(
+                                builder: ((context) =>
+                                    StudentDetail(index: index)))),
+                        leading: CircleAvatar(
+                          backgroundImage: FileImage(
+                              File(state.studentDetails[index].image)),
+                          radius: 40,
+                        ),
+                        title: Text(
+                            state.studentDetails[index].name.toUpperCase(),
+                            style: textWhite),
+                        subtitle: Text(
+                          state.studentDetails[index].branch,
+                          style: textWhite,
+                        ),
+                      ));
+                  // return ListTile(
+                },
+                separatorBuilder: (context, index) {
+                  return  const SizedBox(
+                    height: 10,
+                  );
+                },
+                itemCount: state.studentDetails.length),
       );
     });
   }

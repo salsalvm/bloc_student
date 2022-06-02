@@ -50,7 +50,7 @@ class StudentDetail extends StatelessWidget {
                 ),
                 kHeight50,
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 55),
+                  padding: const EdgeInsets.symmetric(horizontal: 55,),
                   child: Column(
                     children: [
                       ItemFields(

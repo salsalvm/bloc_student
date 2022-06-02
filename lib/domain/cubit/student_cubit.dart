@@ -23,7 +23,7 @@ class StudentCubit extends Cubit<StudentState> {
     final key = box.keys;
     final thisBox = key.elementAt(index);
     box.delete(thisBox);
-    emit(InitialState(studentDetails: box.values.toList(), added: true));
+    emit(InitialState(studentDetails: box.values.toList(),));
   }
 
   void updateStudent(
